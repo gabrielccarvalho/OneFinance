@@ -7,7 +7,11 @@ import { Home } from './src/pages';
 function App(): JSX.Element {
   return (
     <>
-      <StatusBar barStyle="light-content" />
+      <StatusBar
+        barStyle="light-content"
+        backgroundColor="transparent"
+        translucent
+      />
       <ThemeProvider theme={theme}>
         <Home />
       </ThemeProvider>
