@@ -1,13 +1,9 @@
 import React from 'react';
 
-import { Container, Title } from './styles';
+import { Container } from './styles';
 
 const Home = () => {
-  return (
-    <Container>
-      <Title>Home</Title>
-    </Container>
-  );
+  return <Container />;
 };
 
 export default Home;
