@@ -32,7 +32,7 @@ const Home = () => {
       </LinearGradientComponent>
       <Scroll>
         <Container>
-          <Card balance={13000} debts={900} />
+          <Card />
         </Container>
       </Scroll>
     </>

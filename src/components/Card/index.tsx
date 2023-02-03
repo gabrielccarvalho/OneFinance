@@ -1,35 +1,52 @@
 import React from 'react';
+
 import { ViewContext } from '../../context/ViewContext';
-import { Balance, Container, Title } from './styles';
+import { BalanceContext } from '../../context/BalanceContext';
+import { Balance, Container, Title, Input, EditButton } from './styles';
 
-interface CardProps {
-  balance: number;
-  debts: number;
-}
-
-const Card = ({ balance, debts }: CardProps) => {
+const Card = () => {
   const { visible } = React.useContext(ViewContext);
+  const { balance, debts, setBalance, setDebts } =
+    React.useContext(BalanceContext);
+  const [editMode, setEditMode] = React.useState(false);
   return (
     <>
-      <Container>
+      <Container editMode={editMode}>
         <Title>Balance:</Title>
-        <Balance>
-          {visible
-            ? balance.toLocaleString('en-US', {
-                style: 'currency',
-                currency: 'BRL',
-              })
-            : '************'}
-        </Balance>
+        {!editMode ? (
+          <Balance>
+            {visible
+              ? balance.toLocaleString('pt-BR', {
+                  style: 'currency',
+                  currency: 'BRL',
+                })
+              : '•••••••••••'}
+          </Balance>
+        ) : (
+          <Input
+            value={`${balance}`}
+            onChangeText={e => setBalance(Number(e))}
+          />
+        )}
         <Title>Bills scheduled:</Title>
-        <Balance>
-          {visible
-            ? debts.toLocaleString('en-US', {
-                style: 'currency',
-                currency: 'BRL',
-              })
-            : '************'}
-        </Balance>
+        {!editMode ? (
+          <Balance>
+            {visible
+              ? debts.toLocaleString('pt-BR', {
+                  style: 'currency',
+                  currency: 'BRL',
+                })
+              : '•••••••••••'}
+          </Balance>
+        ) : (
+          <Input value={`${debts}`} onChangeText={e => setDebts(Number(e))} />
+        )}
+        <EditButton
+          icon="cached"
+          iconColor="white"
+          size={22}
+          onPress={() => setEditMode(!editMode)}
+        />
       </Container>
     </>
   );

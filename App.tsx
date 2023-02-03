@@ -5,6 +5,7 @@ import { ThemeProvider } from 'styled-components';
 import theme from './src/theme';
 import { Home } from './src/pages';
 import ViewContextProvider from './src/context/ViewContext';
+import BalanceContextProvider from './src/context/BalanceContext';
 
 function App(): JSX.Element {
   return (
@@ -15,9 +16,11 @@ function App(): JSX.Element {
         translucent
       />
       <ViewContextProvider>
-        <ThemeProvider theme={theme}>
-          <Home />
-        </ThemeProvider>
+        <BalanceContextProvider>
+          <ThemeProvider theme={theme}>
+            <Home />
+          </ThemeProvider>
+        </BalanceContextProvider>
       </ViewContextProvider>
     </>
   );
