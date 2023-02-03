@@ -6,7 +6,7 @@ import { Balance, Container, Title, Input, EditButton } from './styles';
 
 const Card = () => {
   const { visible } = React.useContext(ViewContext);
-  const { balance, debts, setBalance, setDebts } =
+  const { balance, debts, saveBalance, saveDebts, setBalance, setDebts } =
     React.useContext(BalanceContext);
   const [editMode, setEditMode] = React.useState(false);
   return (
@@ -25,7 +25,10 @@ const Card = () => {
         ) : (
           <Input
             value={`${balance}`}
-            onChangeText={e => setBalance(Number(e))}
+            onChangeText={e => {
+              saveBalance(Number(e)); // set the localStorage
+              setBalance(Number(e)); // set the state for quick update
+            }}
           />
         )}
         <Title>Bills scheduled:</Title>
@@ -39,7 +42,13 @@ const Card = () => {
               : '•••••••••••'}
           </Balance>
         ) : (
-          <Input value={`${debts}`} onChangeText={e => setDebts(Number(e))} />
+          <Input
+            value={`${debts}`}
+            onChangeText={e => {
+              saveDebts(Number(e)); // set the localStorage
+              setDebts(Number(e)); // set the state for quick update
+            }}
+          />
         )}
         <EditButton
           icon="cached"
