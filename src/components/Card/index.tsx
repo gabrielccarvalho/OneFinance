@@ -6,13 +6,22 @@ import { Balance, Container, Title, Input, EditButton } from './styles';
 
 const Card = () => {
   const { visible } = React.useContext(ViewContext);
-  const { balance, debts, saveBalance, saveDebts, setBalance, setDebts } =
-    React.useContext(BalanceContext);
+  const {
+    balance,
+    debts,
+    savings,
+    saveBalance,
+    saveDebts,
+    saveSavings,
+    setBalance,
+    setDebts,
+    setSavings,
+  } = React.useContext(BalanceContext);
   const [editMode, setEditMode] = React.useState(false);
   return (
     <>
       <Container editMode={editMode}>
-        <Title>Balance:</Title>
+        <Title>Total Balance:</Title>
         {!editMode ? (
           <Balance>
             {visible
@@ -28,6 +37,25 @@ const Card = () => {
             onChangeText={e => {
               saveBalance(Number(e)); // set the localStorage
               setBalance(Number(e)); // set the state for quick update
+            }}
+          />
+        )}
+        <Title>Savings:</Title>
+        {!editMode ? (
+          <Balance>
+            {visible
+              ? savings.toLocaleString('pt-BR', {
+                  style: 'currency',
+                  currency: 'BRL',
+                })
+              : '•••••••••••'}
+          </Balance>
+        ) : (
+          <Input
+            value={`${savings}`}
+            onChangeText={e => {
+              saveSavings(Number(e)); // set the localStorage
+              setSavings(Number(e)); // set the state for quick update
             }}
           />
         )}

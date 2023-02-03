@@ -34,6 +34,11 @@ export const LinearGradientComponent = styled(LinearGradient).attrs(
 `;
 
 export const Scroll = styled.ScrollView`
+  padding-top: 30px;
+  margin-bottom: -20px;
+`;
+
+export const SafeArea = styled.SafeAreaView`
   flex: 1;
   background-color: ${({ theme }) => theme.colors.gray_700};
   padding-top: 30px;
