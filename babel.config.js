@@ -6,7 +6,7 @@ module.exports = {
       {
         root: ['./src'],
         alias: {
-          '@assets': './src/assets',
+          '@assets': './assets',
           '@components': './src/components',
           '@routes': './src/routes',
           '@screens': './src/screens',
@@ -15,5 +15,6 @@ module.exports = {
         },
       },
     ],
+    'react-native-paper/babel',
   ],
 };
