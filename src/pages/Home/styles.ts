@@ -20,6 +20,13 @@ export const Col = styled.View`
   padding-top: 12px;
 `;
 
+export const Row = styled.View`
+  flex-direction: row;
+  align-items: center;
+  align-self: flex-start;
+  padding-top: 12px;
+`;
+
 export const LinearGradientComponent = styled(LinearGradient).attrs(
   ({ theme }) => ({
     colors: [theme.colors.green_700, theme.colors.gray_700],

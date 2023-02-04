@@ -12,6 +12,7 @@ import {
   LinearGradientComponent,
   Scroll,
   SafeArea,
+  Row,
 } from './styles';
 import Card from '@components/Card';
 import { Dimensions } from 'react-native';
@@ -29,12 +30,22 @@ const Home = () => {
           />
           <Title>Hi, Gabriel</Title>
         </Col>
-        <IconButton
-          icon={visible ? 'eye' : 'eye-off'}
-          iconColor="white"
-          size={24}
-          onPress={() => setVisible(!visible)}
-        />
+        <Row>
+          <IconButton
+            icon={visible ? 'eye' : 'eye-off'}
+            iconColor="white"
+            size={20}
+            onPress={() => setVisible(!visible)}
+            style={{ margin: 0 }}
+          />
+          <IconButton
+            icon="cog"
+            iconColor="white"
+            size={20}
+            onPress={() => {}}
+            style={{ margin: 0 }}
+          />
+        </Row>
       </LinearGradientComponent>
       <SafeArea>
         <Scroll>
@@ -45,9 +56,9 @@ const Home = () => {
                 labels: ['Bills', 'Liquid', 'Savings'],
                 colors: ['#F75A68', '#04d898', '#009cf7'],
                 data: [
-                  debts / balance,
-                  (balance - debts) / balance,
-                  savings / balance,
+                  debts / balance || 0,
+                  (balance - debts) / balance || 0,
+                  savings / balance || 0,
                 ],
               }}
               width={Dimensions.get('window').width - 20}
@@ -57,7 +68,7 @@ const Home = () => {
               chartConfig={{
                 backgroundGradientFrom: '#121214',
                 backgroundGradientTo: '#121214',
-                color: (opacity = 1) => `rgba(0, 135, 95, ${opacity})`,
+                color: (opacity = 1) => `rgba(0, 80, 100, ${opacity})`,
                 labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
                 propsForLabels: {
                   fontSize: 10,

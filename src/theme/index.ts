@@ -3,12 +3,18 @@ export default {
     white: '#FFFFFF',
     black: '#000000',
 
+    green_800: '#003b29',
     green_700: '#00875F',
     green_500: '#00B37E',
     green_400: '#04d898',
 
     red: '#F75A68',
     red_dark: '#AA2834',
+
+    pink: '#EE82EE',
+    purple: '#E0B0FF',
+
+    blue: '#009cf7',
 
     gray_700: '#121214',
     gray_600: '#202024',
