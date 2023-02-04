@@ -1,9 +1,11 @@
 import React from 'react';
+import { Dimensions } from 'react-native';
 import { Avatar, IconButton } from 'react-native-paper';
 import { ProgressChart } from 'react-native-chart-kit';
 
 import { ViewContext } from '../../context/ViewContext';
 import { BalanceContext } from '../../context/BalanceContext';
+import { UserContext } from '../../context/UserContext';
 
 import {
   Container,
@@ -15,20 +17,17 @@ import {
   Row,
 } from './styles';
 import Card from '@components/Card';
-import { Dimensions } from 'react-native';
 
 const Home = () => {
   const { visible, setVisible } = React.useContext(ViewContext);
   const { balance, debts, savings } = React.useContext(BalanceContext);
+  const { user } = React.useContext(UserContext);
   return (
     <>
       <LinearGradientComponent>
         <Col>
-          <Avatar.Image
-            size={48}
-            source={require('@assets/images/avatar.png')}
-          />
-          <Title>Hi, Gabriel</Title>
+          <Avatar.Image size={48} source={{ uri: user.avatar }} />
+          <Title>Hi, {user.username}</Title>
         </Col>
         <Row>
           <IconButton
@@ -85,19 +84,3 @@ const Home = () => {
 };
 
 export default Home;
-
-/*
-
-Chart Example:
-I have 1.000 reais in my account, 500 reais is savings.
-I have 100 reais in bills scheduled.
-I have 400 reais in liquid money.
-
-this way, the chart will show:
-Balance: 1.000
-Bills: 100 (10% of 1.000)
-Liquid: 400 (40% of 1.000)
-Savings: 500 (50% of 1.000)
-
-
-*/

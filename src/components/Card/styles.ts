@@ -1,5 +1,5 @@
 import styled from 'styled-components/native';
-import { TextInput, IconButton } from 'react-native-paper';
+import { TextInput } from 'react-native-paper';
 import LinearGradient from 'react-native-linear-gradient';
 
 export const Container = styled(LinearGradient).attrs(({ theme }) => ({
@@ -10,8 +10,8 @@ export const Container = styled(LinearGradient).attrs(({ theme }) => ({
     theme.colors.green_700,
   ],
   start: { x: 0, y: 0 },
-}))<{ editMode: boolean }>`
-  height: ${({ editMode }) => (editMode ? 255 : 205)}px;
+}))`
+  height: 205px;
   width: 325px;
   padding: 24px;
   padding-top: 12px;
@@ -20,10 +20,10 @@ export const Container = styled(LinearGradient).attrs(({ theme }) => ({
   padding-bottom: 0px;
 `;
 
-export const CardShadow = styled.View<{ editMode: boolean }>`
+export const CardShadow = styled.View`
   box-shadow: 0 0 15px ${({ theme }) => theme.colors.green_700};
   border-radius: 10px;
-  height: ${({ editMode }) => (editMode ? 255 : 205)}px;
+  height: 205px;
   width: 325px;
   margin-bottom: 32px;
 `;
@@ -53,10 +53,4 @@ export const Input = styled(TextInput).attrs(({ theme }) => ({
   font-family: ${({ theme }) => theme.font_family.bold};
   margin-top: -10px;
   margin-bottom: 10px;
-`;
-
-export const EditButton = styled(IconButton)`
-  position: absolute;
-  top: 0;
-  right: 0;
 `;

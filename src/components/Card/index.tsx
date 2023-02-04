@@ -2,96 +2,42 @@ import React from 'react';
 
 import { ViewContext } from '../../context/ViewContext';
 import { BalanceContext } from '../../context/BalanceContext';
-import {
-  Balance,
-  Container,
-  Title,
-  Input,
-  EditButton,
-  CardShadow,
-} from './styles';
+import { Balance, Container, Title, CardShadow } from './styles';
 
 const Card = () => {
   const { visible } = React.useContext(ViewContext);
-  const {
-    balance,
-    debts,
-    savings,
-    saveBalance,
-    saveDebts,
-    saveSavings,
-    setBalance,
-    setDebts,
-    setSavings,
-  } = React.useContext(BalanceContext);
-  const [editMode, setEditMode] = React.useState(false);
+  const { balance, debts, savings } = React.useContext(BalanceContext);
   return (
     <>
-      <CardShadow editMode={editMode}>
-        <Container editMode={editMode}>
+      <CardShadow>
+        <Container>
           <Title>Total Balance:</Title>
-          {!editMode ? (
-            <Balance>
-              {visible
-                ? balance.toLocaleString('pt-BR', {
-                    style: 'currency',
-                    currency: 'BRL',
-                  })
-                : '•••••••••••'}
-            </Balance>
-          ) : (
-            <Input
-              value={`${balance}`}
-              onChangeText={e => {
-                saveBalance(Number(e)); // set the localStorage
-                setBalance(Number(e)); // set the state for quick update
-              }}
-            />
-          )}
+          <Balance>
+            {visible
+              ? balance.toLocaleString('pt-BR', {
+                  style: 'currency',
+                  currency: 'BRL',
+                })
+              : '•••••••••••'}
+          </Balance>
           <Title>Savings:</Title>
-          {!editMode ? (
-            <Balance>
-              {visible
-                ? savings.toLocaleString('pt-BR', {
-                    style: 'currency',
-                    currency: 'BRL',
-                  })
-                : '•••••••••••'}
-            </Balance>
-          ) : (
-            <Input
-              value={`${savings}`}
-              onChangeText={e => {
-                saveSavings(Number(e)); // set the localStorage
-                setSavings(Number(e)); // set the state for quick update
-              }}
-            />
-          )}
+          <Balance>
+            {visible
+              ? savings.toLocaleString('pt-BR', {
+                  style: 'currency',
+                  currency: 'BRL',
+                })
+              : '•••••••••••'}
+          </Balance>
           <Title>Bills scheduled:</Title>
-          {!editMode ? (
-            <Balance>
-              {visible
-                ? debts.toLocaleString('pt-BR', {
-                    style: 'currency',
-                    currency: 'BRL',
-                  })
-                : '•••••••••••'}
-            </Balance>
-          ) : (
-            <Input
-              value={`${debts}`}
-              onChangeText={e => {
-                saveDebts(Number(e)); // set the localStorage
-                setDebts(Number(e)); // set the state for quick update
-              }}
-            />
-          )}
-          <EditButton
-            icon="cached"
-            iconColor="white"
-            size={22}
-            onPress={() => setEditMode(!editMode)}
-          />
+          <Balance>
+            {visible
+              ? debts.toLocaleString('pt-BR', {
+                  style: 'currency',
+                  currency: 'BRL',
+                })
+              : '•••••••••••'}
+          </Balance>
         </Container>
       </CardShadow>
     </>

@@ -8,6 +8,8 @@ import theme from './src/theme';
 import { Home, Profile } from './src/pages';
 import ViewContextProvider from './src/context/ViewContext';
 import BalanceContextProvider from './src/context/BalanceContext';
+import UserContextProvider from './src/context/UserContext';
+
 import Icon from '@components/HomeIcon';
 
 const Tab = createBottomTabNavigator();
@@ -21,65 +23,67 @@ function App(): JSX.Element {
         translucent
       />
       <ViewContextProvider>
-        <BalanceContextProvider>
-          <ThemeProvider theme={theme}>
-            <NavigationContainer>
-              <Tab.Navigator
-                initialRouteName="Home"
-                screenOptions={{
-                  headerShown: false,
-                  tabBarShowLabel: false,
-                  tabBarActiveTintColor: '#04d898',
-                  tabBarInactiveTintColor: '#fff',
-                  tabBarStyle: {
-                    position: 'absolute',
-                    bottom: 4,
-                    left: 20,
-                    right: 20,
-                    elevation: 0,
-                    backgroundColor: '#121214',
-                    height: 90,
-                  },
-                }}>
-                <Tab.Screen
-                  name="Profile"
-                  component={Profile}
-                  options={{
-                    tabBarIcon: ({ color }) => Icon(color, 'person'),
-                  }}
-                />
-                <Tab.Screen
-                  name="Savings"
-                  component={Home}
-                  options={{
-                    tabBarIcon: ({ color }) => Icon(color, 'wallet'),
-                  }}
-                />
-                <Tab.Screen
-                  name="Home"
-                  component={Home}
-                  options={{
-                    tabBarIcon: ({ color }) => Icon(color, 'home'),
-                  }}
-                />
-                <Tab.Screen
-                  name="Analytics"
-                  component={Home}
-                  options={{
-                    tabBarIcon: ({ color }) => Icon(color, 'md-bar-chart'),
-                  }}
-                />
-                <Tab.Screen
-                  name="Stocks"
-                  component={Home}
-                  options={{
-                    tabBarIcon: ({ color }) => Icon(color, 'md-trending-up'),
-                  }}
-                />
-              </Tab.Navigator>
-            </NavigationContainer>
-          </ThemeProvider>
-        </BalanceContextProvider>
+        <UserContextProvider>
+          <BalanceContextProvider>
+            <ThemeProvider theme={theme}>
+              <NavigationContainer>
+                <Tab.Navigator
+                  initialRouteName="Home"
+                  screenOptions={{
+                    headerShown: false,
+                    tabBarShowLabel: false,
+                    tabBarActiveTintColor: '#04d898',
+                    tabBarInactiveTintColor: '#fff',
+                    tabBarStyle: {
+                      position: 'absolute',
+                      bottom: 4,
+                      left: 20,
+                      right: 20,
+                      elevation: 0,
+                      backgroundColor: '#121214',
+                      height: 90,
+                    },
+                  }}>
+                  <Tab.Screen
+                    name="Profile"
+                    component={Profile}
+                    options={{
+                      tabBarIcon: ({ color }) => Icon(color, 'person'),
+                    }}
+                  />
+                  <Tab.Screen
+                    name="Savings"
+                    component={Home}
+                    options={{
+                      tabBarIcon: ({ color }) => Icon(color, 'wallet'),
+                    }}
+                  />
+                  <Tab.Screen
+                    name="Home"
+                    component={Home}
+                    options={{
+                      tabBarIcon: ({ color }) => Icon(color, 'home'),
+                    }}
+                  />
+                  <Tab.Screen
+                    name="Analytics"
+                    component={Home}
+                    options={{
+                      tabBarIcon: ({ color }) => Icon(color, 'md-bar-chart'),
+                    }}
+                  />
+                  <Tab.Screen
+                    name="Stocks"
+                    component={Home}
+                    options={{
+                      tabBarIcon: ({ color }) => Icon(color, 'md-trending-up'),
+                    }}
+                  />
+                </Tab.Navigator>
+              </NavigationContainer>
+            </ThemeProvider>
+          </BalanceContextProvider>
+        </UserContextProvider>
       </ViewContextProvider>
     </>
   );
