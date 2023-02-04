@@ -18,7 +18,7 @@ import {
 } from './styles';
 import Card from '@components/Card';
 
-const Home = () => {
+const Home = ({ navigation }: { navigation: any }) => {
   const { visible, setVisible } = React.useContext(ViewContext);
   const { balance, debts, savings } = React.useContext(BalanceContext);
   const { user } = React.useContext(UserContext);
@@ -41,7 +41,9 @@ const Home = () => {
             icon="cog"
             iconColor="white"
             size={20}
-            onPress={() => {}}
+            onPress={() => {
+              navigation.navigate('Profile');
+            }}
             style={{ margin: 0 }}
           />
         </Row>

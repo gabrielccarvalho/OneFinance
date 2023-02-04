@@ -14,6 +14,15 @@ export const Scroll = styled.ScrollView`
   background-color: ${({ theme }) => theme.colors.gray_700};
 `;
 
+export const SafeArea = styled.SafeAreaView`
+  flex: 1;
+  background-color: ${({ theme }) => theme.colors.gray_700};
+`;
+
+export const KeyboardSafeArea = styled.KeyboardAvoidingView`
+  flex: 1;
+`;
+
 export const Title = styled.Text`
   color: ${({ theme }) => theme.colors.white};
   font-family: ${({ theme }) => theme.font_family.bold};
