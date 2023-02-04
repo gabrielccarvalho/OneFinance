@@ -67,9 +67,8 @@ const Profile = () => {
                 <Label>Total:</Label>
                 <Input
                   value={`${balance}`}
-                  defaultValue={`${balance}`}
                   onChangeText={e => {
-                    if (e) {
+                    if (!isNaN(Number(e))) {
                       saveBalance(Number(e)); // set the localStorage
                       setBalance(Number(e)); // set the state for quick update
                     } else {
@@ -84,7 +83,7 @@ const Profile = () => {
                 <Input
                   value={`${debts}`}
                   onChangeText={e => {
-                    if (e) {
+                    if (!isNaN(Number(e))) {
                       saveDebts(Number(e)); // set the localStorage
                       setDebts(Number(e)); // set the state for quick update
                     } else {
@@ -98,8 +97,8 @@ const Profile = () => {
                 <Label>Savings:</Label>
                 <Input
                   value={`${savings}`}
-                  onChangeText={e => {
-                    if (e) {
+                  onSubmitEditing={e => {
+                    if (!isNaN(Number(e))) {
                       saveSavings(Number(e)); // set the localStorage
                       setSavings(Number(e)); // set the state for quick update
                     } else {

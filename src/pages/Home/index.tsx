@@ -52,32 +52,35 @@ const Home = ({ navigation }: { navigation: any }) => {
         <Scroll>
           <Container>
             <Card />
-            <ProgressChart
-              data={{
-                labels: ['Bills', 'Liquid', 'Savings'],
-                colors: ['#F75A68', '#04d898', '#009cf7'],
-                data: [
-                  debts / balance || 0,
-                  (balance - debts) / balance || 0,
-                  savings / balance || 0,
-                ],
-              }}
-              width={Dimensions.get('window').width - 20}
-              height={250}
-              strokeWidth={16}
-              radius={32}
-              chartConfig={{
-                backgroundGradientFrom: '#121214',
-                backgroundGradientTo: '#121214',
-                color: (opacity = 1) => `rgba(0, 80, 100, ${opacity})`,
-                labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-                propsForLabels: {
-                  fontSize: 10,
-                  fontWeight: 'bold',
-                },
-              }}
-              withCustomBarColorFromData
-            />
+            {debts > 0 && balance > 0 && savings > 0 && (
+              <ProgressChart
+                data={{
+                  labels: ['Bills', 'Liquid', 'Savings'],
+                  colors: ['#F75A68', '#04d898', '#009cf7'],
+                  data: [
+                    debts / balance,
+                    (balance - debts) / balance,
+                    savings / balance,
+                  ],
+                }}
+                width={Dimensions.get('window').width - 20}
+                height={250}
+                strokeWidth={16}
+                radius={32}
+                chartConfig={{
+                  backgroundGradientFrom: '#121214',
+                  backgroundGradientTo: '#121214',
+                  color: (opacity = 1) => `rgba(0, 80, 100, ${opacity})`,
+                  labelColor: (opacity = 1) =>
+                    `rgba(255, 255, 255, ${opacity})`,
+                  propsForLabels: {
+                    fontSize: 10,
+                    fontWeight: 'bold',
+                  },
+                }}
+                withCustomBarColorFromData
+              />
+            )}
           </Container>
         </Scroll>
       </SafeArea>
