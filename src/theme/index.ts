@@ -27,6 +27,7 @@ export default {
   font_family: {
     regular: 'Roboto',
     bold: 'Roboto-Bold',
+    rubik: 'Rubik',
   },
   font_size: {
     sm: 14,

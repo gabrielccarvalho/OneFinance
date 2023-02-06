@@ -97,7 +97,7 @@ const Profile = () => {
                 <Label>Savings:</Label>
                 <Input
                   value={`${savings}`}
-                  onSubmitEditing={e => {
+                  onChangeText={e => {
                     if (!isNaN(Number(e))) {
                       saveSavings(Number(e)); // set the localStorage
                       setSavings(Number(e)); // set the state for quick update
