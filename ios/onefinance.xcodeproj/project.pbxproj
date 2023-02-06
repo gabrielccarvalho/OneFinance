@@ -15,8 +15,8 @@
 		7699B88040F8A987B510C191 /* libPods-onefinance-onefinanceTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-onefinance-onefinanceTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		95038D2324EB4A10B9023415 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3EAC3C139B454901A3D77D17 /* Roboto-Bold.ttf */; };
-		EC8F05EB92CF4C7FAF2C7738 /* Roboto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A5FCF5F503764FD6A3D1F156 /* Roboto.ttf */; };
 		BC4DCEE7823B49BD9311AE0E /* Rubik-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 520B36271FC54F6F96A3EBC2 /* Rubik-Bold.ttf */; };
+		EC8F05EB92CF4C7FAF2C7738 /* Roboto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A5FCF5F503764FD6A3D1F156 /* Roboto.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +42,7 @@
 		19F6CBCC0A4E27FBF8BF4A61 /* libPods-onefinance-onefinanceTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-onefinance-onefinanceTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B4392A12AC88292D35C810B /* Pods-onefinance.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-onefinance.debug.xcconfig"; path = "Target Support Files/Pods-onefinance/Pods-onefinance.debug.xcconfig"; sourceTree = "<group>"; };
 		3EAC3C139B454901A3D77D17 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-Bold.ttf"; path = "../assets/fonts/Roboto-Bold.ttf"; sourceTree = "<group>"; };
+		520B36271FC54F6F96A3EBC2 /* Rubik-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Rubik-Bold.ttf"; path = "../assets/fonts/Rubik-Bold.ttf"; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-onefinance.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-onefinance.release.xcconfig"; path = "Target Support Files/Pods-onefinance/Pods-onefinance.release.xcconfig"; sourceTree = "<group>"; };
 		5B7EB9410499542E8C5724F5 /* Pods-onefinance-onefinanceTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-onefinance-onefinanceTests.debug.xcconfig"; path = "Target Support Files/Pods-onefinance-onefinanceTests/Pods-onefinance-onefinanceTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5DCACB8F33CDC322A6C60F78 /* libPods-onefinance.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-onefinance.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -49,7 +50,6 @@
 		89C6BE57DB24E9ADA2F236DE /* Pods-onefinance-onefinanceTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-onefinance-onefinanceTests.release.xcconfig"; path = "Target Support Files/Pods-onefinance-onefinanceTests/Pods-onefinance-onefinanceTests.release.xcconfig"; sourceTree = "<group>"; };
 		A5FCF5F503764FD6A3D1F156 /* Roboto.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Roboto.ttf; path = ../assets/fonts/Roboto.ttf; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		520B36271FC54F6F96A3EBC2 /* Rubik-Bold.ttf */ = {isa = PBXFileReference; name = "Rubik-Bold.ttf"; path = "../assets/fonts/Rubik-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */

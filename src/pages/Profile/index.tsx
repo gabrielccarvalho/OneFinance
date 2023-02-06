@@ -4,8 +4,9 @@ import {
   Platform,
   TouchableWithoutFeedback,
   Keyboard,
+  TouchableOpacity,
 } from 'react-native';
-import { Avatar } from 'react-native-paper';
+import { Avatar, IconButton } from 'react-native-paper';
 import { UserContext } from '../../context/UserContext';
 import { BalanceContext } from '../../context/BalanceContext';
 
@@ -19,6 +20,7 @@ import {
   Label,
   KeyboardSafeArea,
 } from './styles';
+import { launchImageLibrary } from 'react-native-image-picker';
 
 const Profile = () => {
   const { user, setUser, updateUser } = React.useContext(UserContext);
@@ -39,13 +41,40 @@ const Profile = () => {
         <Scroll>
           <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
             <Container>
-              <Avatar.Image
-                size={128}
-                source={{
-                  uri: user.avatar,
-                }}
-                style={{ marginBottom: 24 }}
-              />
+              <TouchableOpacity
+                onPress={() => {
+                  launchImageLibrary(
+                    {
+                      mediaType: 'photo',
+                    },
+                    response => {
+                      setUser({
+                        ...user,
+                        avatar: response.assets?.map(
+                          asset => asset.uri,
+                        )[0] as unknown as string,
+                      });
+                      updateUser({
+                        ...user,
+                        avatar: response.assets?.map(asset => asset.uri)[0],
+                      });
+                    },
+                  );
+                }}>
+                <Avatar.Image
+                  size={128}
+                  source={{
+                    uri: user.avatar,
+                  }}
+                  style={{ marginBottom: 24 }}
+                />
+                <IconButton
+                  icon="account-edit"
+                  iconColor="white"
+                  size={64}
+                  style={{ position: 'absolute', right: -40, bottom: 5 }}
+                />
+              </TouchableOpacity>
               <Title>User Settings</Title>
               <Col>
                 <Label>Username:</Label>

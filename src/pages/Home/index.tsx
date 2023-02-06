@@ -134,7 +134,7 @@ const Home = ({ navigation }: { navigation: any }) => {
                 : '•••••••••••'}
             </DropdownSubTitle>
           </Animated.View>
-          <Container style={{ position: 'absolute', top: 230, left: 0 }}>
+          <Container>
             {debts > 0 && balance > 0 && savings > 0 && (
               <ProgressChart
                 data={{
