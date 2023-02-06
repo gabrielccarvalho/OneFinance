@@ -111,7 +111,6 @@ const Home = ({ navigation }: { navigation: any }) => {
               borderLeftWidth: 2,
               borderLeftColor: '#00B37E',
               borderTopColor: '#00B37E',
-              marginBottom: 48,
               overflow: 'hidden',
             }}>
             <Title>Bills Scheduled</Title>
@@ -135,7 +134,7 @@ const Home = ({ navigation }: { navigation: any }) => {
                 : '•••••••••••'}
             </DropdownSubTitle>
           </Animated.View>
-          <Container>
+          <Container style={{ position: 'absolute', top: 230, left: 0 }}>
             {debts > 0 && balance > 0 && savings > 0 && (
               <ProgressChart
                 data={{
@@ -148,8 +147,8 @@ const Home = ({ navigation }: { navigation: any }) => {
                   ],
                 }}
                 width={Dimensions.get('window').width - 20}
-                height={250}
-                strokeWidth={16}
+                height={300}
+                strokeWidth={20}
                 radius={32}
                 chartConfig={{
                   backgroundGradientFrom: '#121214',
