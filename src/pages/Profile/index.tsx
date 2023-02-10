@@ -6,7 +6,7 @@ import {
   Keyboard,
   TouchableOpacity,
 } from 'react-native';
-import { Avatar, IconButton } from 'react-native-paper';
+import { Avatar } from 'react-native-paper';
 import { UserContext } from '../../context/UserContext';
 import { BalanceContext } from '../../context/BalanceContext';
 
@@ -37,8 +37,9 @@ const Profile = () => {
   } = React.useContext(BalanceContext);
   return (
     <SafeArea>
-      <KeyboardSafeArea behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
-        <Scroll>
+      <Scroll>
+        <KeyboardSafeArea
+          behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
           <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
             <Container>
               <TouchableOpacity
@@ -68,18 +69,11 @@ const Profile = () => {
                   }}
                   style={{ marginBottom: 24 }}
                 />
-                <IconButton
-                  icon="account-edit"
-                  iconColor="white"
-                  size={64}
-                  style={{ position: 'absolute', right: -40, bottom: 5 }}
-                />
               </TouchableOpacity>
               <Title>User Settings</Title>
               <Col>
                 <Label>Username:</Label>
                 <Input
-                  placeholder="Username"
                   value={user.username}
                   onChangeText={e => {
                     setUser({
@@ -88,7 +82,9 @@ const Profile = () => {
                     });
                     updateUser({ username: e });
                   }}
-                  style={{ width: Dimensions.get('window').width - 48 }}
+                  style={{
+                    width: Dimensions.get('window').width - 48,
+                  }}
                 />
               </Col>
               <Title>Balance Settings</Title>
@@ -141,8 +137,8 @@ const Profile = () => {
               </Col>
             </Container>
           </TouchableWithoutFeedback>
-        </Scroll>
-      </KeyboardSafeArea>
+        </KeyboardSafeArea>
+      </Scroll>
     </SafeArea>
   );
 };

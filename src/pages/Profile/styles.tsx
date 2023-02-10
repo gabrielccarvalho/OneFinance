@@ -26,15 +26,14 @@ export const KeyboardSafeArea = styled.KeyboardAvoidingView`
 export const Title = styled.Text`
   color: ${({ theme }) => theme.colors.white};
   font-family: ${({ theme }) => theme.font_family.bold};
-  font-size: ${({ theme }) => theme.font_size.xl}px;
+  font-size: ${({ theme }) => theme.font_size.md}px;
 `;
 
 export const Label = styled.Text`
   color: ${({ theme }) => theme.colors.white};
   font-family: ${({ theme }) => theme.font_family.regular};
-  font-size: ${({ theme }) => theme.font_size.md}px;
-  padding-bottom: 6px;
-  padding-top: 12px;
+  font-size: ${({ theme }) => theme.font_size.sm}px;
+  padding-bottom: 12px;
 `;
 
 export const Col = styled.View`
@@ -50,9 +49,10 @@ export const Input = styled(TextInput).attrs(({ theme }) => ({
 }))`
   background-color: ${({ theme }) => theme.colors.gray_500};
   color: ${({ theme }) => theme.colors.white};
-  font-size: ${({ theme }) => theme.font_size.md}px;
+  font-size: ${({ theme }) => theme.font_size.sm}px;
   font-family: ${({ theme }) => theme.font_family.bold};
-  margin-top: 5px;
+  height: 40px;
+  margin-bottom: 12px;
   border-radius: 10px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;

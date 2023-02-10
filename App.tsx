@@ -5,7 +5,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import theme from './src/theme';
-import { Home, Profile } from './src/pages';
+import { Analytics, Home, Profile, Stocks, Wallet } from './src/pages';
 import ViewContextProvider from './src/context/ViewContext';
 import BalanceContextProvider from './src/context/BalanceContext';
 import UserContextProvider from './src/context/UserContext';
@@ -36,9 +36,6 @@ function App(): JSX.Element {
                     tabBarInactiveTintColor: '#fff',
                     tabBarStyle: {
                       position: 'absolute',
-                      bottom: 4,
-                      left: 20,
-                      right: 20,
                       elevation: 0,
                       backgroundColor: '#121214',
                       height: 90,
@@ -52,8 +49,8 @@ function App(): JSX.Element {
                     }}
                   />
                   <Tab.Screen
-                    name="Savings"
-                    component={Home}
+                    name="Wallet"
+                    component={Wallet}
                     options={{
                       tabBarIcon: ({ color }) => Icon(color, 'wallet'),
                     }}
@@ -67,14 +64,14 @@ function App(): JSX.Element {
                   />
                   <Tab.Screen
                     name="Analytics"
-                    component={Home}
+                    component={Analytics}
                     options={{
                       tabBarIcon: ({ color }) => Icon(color, 'md-bar-chart'),
                     }}
                   />
                   <Tab.Screen
                     name="Stocks"
-                    component={Home}
+                    component={Stocks}
                     options={{
                       tabBarIcon: ({ color }) => Icon(color, 'md-trending-up'),
                     }}

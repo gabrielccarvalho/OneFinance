@@ -5,22 +5,22 @@ import { IconButton } from 'react-native-paper';
 export const Container = styled.View`
   flex: 1;
   background-color: ${({ theme }) => theme.colors.gray_700};
-  padding: 12px;
-  padding-top: 0;
+  padding: 0 12px;
   align-items: center;
+  justify-content: flex-end;
 `;
 
 export const Name = styled.Text`
   color: ${({ theme }) => theme.colors.white};
-  font-family: ${({ theme }) => theme.font_family.regular};
-  font-size: ${({ theme }) => theme.font_size.lg}px;
-  padding-top: 24px;
+  font-family: ${({ theme }) => theme.font_family.bold};
+  font-size: ${({ theme }) => theme.font_size.md}px;
+  padding-top: 12px;
 `;
 
 export const Title = styled.Text`
   color: ${({ theme }) => theme.colors.white};
   font-family: ${({ theme }) => theme.font_family.rubik};
-  font-size: ${({ theme }) => theme.font_size.lg}px;
+  font-size: ${({ theme }) => theme.font_size.md}px;
   font-weight: 700;
   padding-top: 8px;
 `;
@@ -28,7 +28,7 @@ export const Title = styled.Text`
 export const SubTitle = styled.Text`
   color: ${({ theme }) => theme.colors.green_500};
   font-family: ${({ theme }) => theme.font_family.rubik};
-  font-size: ${({ theme }) => theme.font_size.lg}px;
+  font-size: ${({ theme }) => theme.font_size.md}px;
   font-weight: 700;
   padding-top: 18px;
 `;
@@ -37,7 +37,7 @@ export const DropdownSubTitle = styled.Text<{ debts: boolean }>`
   color: ${({ theme, debts }) =>
     debts ? theme.colors.red : theme.colors.blue};
   font-family: ${({ theme }) => theme.font_family.rubik};
-  font-size: ${({ theme }) => theme.font_size.lg}px;
+  font-size: ${({ theme }) => theme.font_size.md}px;
   font-weight: 700;
   padding-top: 6px;
 `;
@@ -90,9 +90,9 @@ export const LinearGradientComponent = styled(LinearGradient).attrs(
   flex: 1;
   flex-direction: row;
   justify-content: space-between;
-  max-height: 200px;
+  max-height: 150px;
   padding: 12px;
-  padding-top: 48px;
+  padding-top: 32px;
 `;
 
 export const Scroll = styled.ScrollView`
@@ -103,5 +103,5 @@ export const Scroll = styled.ScrollView`
 export const SafeArea = styled.SafeAreaView`
   flex: 1;
   background-color: ${({ theme }) => theme.colors.gray_700};
-  padding-top: 30px;
+  margin-bottom: 90px;
 `;

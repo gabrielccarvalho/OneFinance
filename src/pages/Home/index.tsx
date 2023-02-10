@@ -7,6 +7,7 @@ import { ProgressChart } from 'react-native-chart-kit';
 import { ViewContext } from '../../context/ViewContext';
 import { BalanceContext } from '../../context/BalanceContext';
 import { UserContext } from '../../context/UserContext';
+import { WalletWidget } from '../../containers';
 
 import {
   AccountButton,
@@ -17,7 +18,6 @@ import {
   Name,
   Title,
   LinearGradientComponent,
-  Scroll,
   SafeArea,
   Row,
   SubTitle,
@@ -75,97 +75,95 @@ const Home = ({ navigation }: { navigation: any }) => {
         </Row>
       </LinearGradientComponent>
       <SafeArea>
-        <Scroll>
-          <BalanceBox>
-            <Title>Balance</Title>
-            <SubTitle>
-              {' '}
-              {visible
-                ? balance.toLocaleString('pt-BR', {
-                    style: 'currency',
-                    currency: 'BRL',
-                  })
-                : '•••••••••••'}
-            </SubTitle>
-            <AccountButton
-              icon={dropdown ? 'chevron-down' : 'chevron-right'}
-              iconColor="white"
-              size={25}
-              onPress={() => setDropdown(!dropdown)}
+        <BalanceBox>
+          <Title>Balance</Title>
+          <SubTitle>
+            {' '}
+            {visible
+              ? balance.toLocaleString('pt-BR', {
+                  style: 'currency',
+                  currency: 'BRL',
+                })
+              : '•••••••••••'}
+          </SubTitle>
+          <AccountButton
+            icon={dropdown ? 'chevron-down' : 'chevron-right'}
+            iconColor="white"
+            size={25}
+            onPress={() => setDropdown(!dropdown)}
+          />
+        </BalanceBox>
+        <Animated.View
+          style={{
+            height: fadeAnim,
+            opacity: fadeAnim,
+            alignItems: 'flex-start',
+            justifyContent: 'center',
+            backgroundColor: '#29292E',
+            paddingLeft: 12,
+            padding: 0,
+            paddingBottom: 8,
+            marginHorizontal: 12,
+            marginRight: 24,
+            borderTopRightRadius: 8,
+            borderBottomRightRadius: 8,
+            borderLeftWidth: 2,
+            borderLeftColor: '#00B37E',
+            borderTopColor: '#00B37E',
+            overflow: 'hidden',
+          }}>
+          <Title>Bills Scheduled</Title>
+          <DropdownSubTitle debts>
+            {' '}
+            {visible
+              ? debts.toLocaleString('pt-BR', {
+                  style: 'currency',
+                  currency: 'BRL',
+                })
+              : '•••••••••••'}
+          </DropdownSubTitle>
+          <Title>Savings</Title>
+          <DropdownSubTitle debts={false}>
+            {' '}
+            {visible
+              ? savings.toLocaleString('pt-BR', {
+                  style: 'currency',
+                  currency: 'BRL',
+                })
+              : '•••••••••••'}
+          </DropdownSubTitle>
+        </Animated.View>
+        <Container>
+          {debts > 0 && balance > 0 && savings > 0 && (
+            <ProgressChart
+              data={{
+                labels: ['Bills', 'Liquid', 'Savings'],
+                colors: ['#F75A68', '#04d898', '#009cf7'],
+                data: [
+                  debts / balance,
+                  (balance - debts) / balance,
+                  savings / balance,
+                ],
+              }}
+              width={Dimensions.get('window').width - 20}
+              height={300}
+              strokeWidth={20}
+              radius={32}
+              chartConfig={{
+                backgroundGradientFrom: '#121214',
+                backgroundGradientTo: '#121214',
+                color: (opacity = 1) => `rgba(0, 80, 100, ${opacity})`,
+                labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+                propsForLabels: {
+                  fontSize: 10,
+                  fontWeight: 'bold',
+                },
+              }}
+              withCustomBarColorFromData
             />
-          </BalanceBox>
-          <Animated.View
-            style={{
-              height: fadeAnim,
-              opacity: fadeAnim,
-              alignItems: 'flex-start',
-              justifyContent: 'center',
-              backgroundColor: '#29292E',
-              paddingLeft: 12,
-              padding: 0,
-              paddingBottom: 8,
-              marginHorizontal: 12,
-              marginRight: 24,
-              borderTopRightRadius: 8,
-              borderBottomRightRadius: 8,
-              borderLeftWidth: 2,
-              borderLeftColor: '#00B37E',
-              borderTopColor: '#00B37E',
-              overflow: 'hidden',
-            }}>
-            <Title>Bills Scheduled</Title>
-            <DropdownSubTitle debts>
-              {' '}
-              {visible
-                ? debts.toLocaleString('pt-BR', {
-                    style: 'currency',
-                    currency: 'BRL',
-                  })
-                : '•••••••••••'}
-            </DropdownSubTitle>
-            <Title>Savings</Title>
-            <DropdownSubTitle debts={false}>
-              {' '}
-              {visible
-                ? savings.toLocaleString('pt-BR', {
-                    style: 'currency',
-                    currency: 'BRL',
-                  })
-                : '•••••••••••'}
-            </DropdownSubTitle>
-          </Animated.View>
-          <Container>
-            {debts > 0 && balance > 0 && savings > 0 && (
-              <ProgressChart
-                data={{
-                  labels: ['Bills', 'Liquid', 'Savings'],
-                  colors: ['#F75A68', '#04d898', '#009cf7'],
-                  data: [
-                    debts / balance,
-                    (balance - debts) / balance,
-                    savings / balance,
-                  ],
-                }}
-                width={Dimensions.get('window').width - 20}
-                height={300}
-                strokeWidth={20}
-                radius={32}
-                chartConfig={{
-                  backgroundGradientFrom: '#121214',
-                  backgroundGradientTo: '#121214',
-                  color: (opacity = 1) => `rgba(0, 80, 100, ${opacity})`,
-                  labelColor: (opacity = 1) =>
-                    `rgba(255, 255, 255, ${opacity})`,
-                  propsForLabels: {
-                    fontSize: 10,
-                    fontWeight: 'bold',
-                  },
-                }}
-                withCustomBarColorFromData
-              />
-            )}
-          </Container>
-        </Scroll>
+          )}
+        </Container>
+        <WalletWidget />
       </SafeArea>
     </>
   );
